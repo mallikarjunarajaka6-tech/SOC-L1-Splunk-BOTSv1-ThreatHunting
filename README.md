@@ -1,2 +1,10 @@
-# SOC-L1-Splunk-BOTSv1-ThreatHunting
-T1110 + T1078 detection on non-standard BOTSv1 logs. SPL troubleshooting + MITRE mapping.
+# SOC L1 Threat Hunting Lab – Boss of the SOC v1
+
+**Objective**: Demonstrate SPL troubleshooting, schema discovery, and MITRE ATT&CK mapping on non-standard SOC data. Built for UST/Genpact/TechM SOC L1/L2 interviews.
+
+### Detection 1: T1110 Brute Force – Non-Standard Schema Analysis
+**Challenge**: BOTSv1 attack-only dataset uses URL-encoded proxy logs, not Windows Event XML.
+
+**SPL**: 
+```spl
+index=botsv1 sourcetype=botsv1 4625 | stats count
